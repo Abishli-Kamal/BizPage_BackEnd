@@ -1,0 +1,237 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: black;
+}
+
+header .title {
+  margin-top: 15px;
+  border-left: 4px solid #17c467;
+}
+
+header .title h2 {
+  padding: 10px;
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+header .navbar ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 100%;
+}
+
+header .navbar ul li {
+  cursor: pointer;
+  font-weight: bold;
+  list-style: none;
+  color: white;
+}
+
+header .navbar ul li:hover {
+  color: #17c467;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+main #slider #carouselExampleCaptions .carousel-item {
+  position: relative;
+}
+
+main #slider #carouselExampleCaptions .carousel-item .carousel-caption {
+  position: absolute;
+  top: 0px;
+}
+
+main #slider #carouselExampleCaptions .carousel-item .carousel-caption h2 {
+  font-size: 45px !important;
+}
+
+main #about {
+  margin-top: 5%;
+}
+
+main #about .title h2 {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+main #about .title p {
+  font-size: 18px;
+}
+
+main #about .aboutCard {
+  position: relative;
+}
+
+main #about .aboutCard:hover .icon {
+  background-color: white;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+main #about .aboutCard:hover .icon i {
+  color: #18d26e;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+main #about .aboutCard .icon {
+  border: 4px solid white;
+  position: absolute;
+  left: 43%;
+  bottom: 35%;
+  background-color: #18d26e;
+  width: 75px;
+  height: 10vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main #about .aboutCard .icon i {
+  color: white;
+  font-size: 25px;
+}
+
+main #about .aboutCard h4 {
+  margin-top: 50px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+main #about .aboutCard h4:hover {
+  color: #22f785;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+main #portfolio {
+  margin-top: 3%;
+}
+
+main #portfolio .title h2 {
+  font-size: 35px;
+  font-weight: bold;
+}
+
+main #portfolio ul li button {
+  margin-left: 5px;
+}
+
+main #portfolio ul li button:hover {
+  background-color: #0d6efd;
+  color: white;
+}
+
+main #portfolio .item img {
+  height: 33vh;
+}
+
+main #contact {
+  margin-top: 3%;
+}
+
+main #contact .title h2 {
+  font-size: 35px;
+  font-weight: bold;
+}
+
+main #contact .title p {
+  font-size: 18px;
+}
+
+main #contact .card i {
+  font-size: 45px;
+  color: #1ed371;
+}
+
+main #contact .card h5 {
+  color: #a7a7a7;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+main #contact form .btnForm {
+  background-color: #18d26e;
+  color: white;
+  width: 15%;
+  border: white;
+  height: 6vh;
+}
+
+footer {
+  margin-top: 3%;
+  background-color: black;
+  color: white;
+}
+
+footer .item h2 {
+  font-weight: bold;
+}
+
+footer .item p {
+  font-size: 18px;
+  margin-top: 22px;
+}
+
+footer .itemNav h5 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+footer .itemNav ul li {
+  list-style: none;
+  margin: 5px;
+  padding: 10px;
+  border-bottom: 2px solid #adabab;
+}
+
+footer .itemNav ul li i {
+  margin-right: 5px;
+}
+
+footer .itemContact h5 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+footer .itemContact button {
+  background-color: #333333;
+}
+
+footer .itemContact button:hover {
+  background-color: #18d26e;
+}
+
+footer .itemContact button i {
+  color: white;
+}
+
+footer .our h5 {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+footer .our button {
+  background-color: #18d26e;
+  color: white;
+  border: white;
+  width: 150px;
+}
+/*# sourceMappingURL=style.css.map */

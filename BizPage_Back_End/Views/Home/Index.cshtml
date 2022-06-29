@@ -1,0 +1,232 @@
+﻿@using BizPage_Back_End.Models
+@using BizPage_Back_End.View_models
+@model HomeVM
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<main>
+    <section id="slider ">
+
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"
+                        aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4"
+                        aria-label="Slide 5"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="5"
+                        aria-label="Slide 6"></button>
+            </div>
+            <div class="carousel-inner">
+                 
+                
+                 @{int i = 0;}  
+                @foreach (Slider slider in Model.Sliders)
+                {
+                     i++;  
+                    var active = i == 1 ? "active" : "";  
+                                       
+                    <div class="carousel-item @active ">
+                        <img style="height: 88vh;" src="~/assets/img/@slider.Image" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h2>@slider.Title</h2>
+                            <p>@slider.SubTitle</p>
+                        </div>
+                    </div>
+                }
+
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+    </section>
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="title text-center col-lg-12">
+                    <h2>ABOUT US</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+                </div>
+                @foreach (About ab in Model.Abouts)
+                {
+                    <div class="col-lg-4">
+                        <div class="aboutCard text-center">
+                            <img class="w-100" src="~/assets/img/@ab.Image" alt="">
+                            <div class="icon rounded-circle">
+                                <i class="@ab.Icon"></i>
+                            </div>
+                            <h4>@ab.Title</h4>
+                            <p>@ab.SubTitle</p>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </section>
+    <section id="portfolio">
+        <div class="container">
+            <div class="row">
+                <div class="title text-center">
+                    <h2>OUR PORTFOLIO</h2>
+                </div>
+                <ul class="nav nav-pills mb-3 justify-content-center mt-5" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
+                                aria-selected="true">
+                            ALL
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
+                                aria-selected="false">
+                            APP
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
+                                aria-selected="false">
+                            CARD
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-web" type="button" role="tab" aria-controls="pills-contact"
+                                aria-selected="false">
+                            WEB
+                        </button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                         aria-labelledby="pills-home-tab">
+                        <div class="row text-center">
+                            @foreach (Product pr in Model.Products.FindAll(s => s.CategoryId == 1))
+                            {
+                                <div class="col-lg-4">
+                                    <div class="item">
+                                        <img class="w-100" src="~/assets/img/portfolio/@pr.Image" alt="">
+                                        <h5 class="mt-3">@pr.Title</h5>
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+
+                    </div>
+                    <div class="tab-pane fade" id="pills-profile" role="tabpanel"
+                         aria-labelledby="pills-profile-tab">
+
+                        <div class="row text-center">
+                            @foreach (Product pr in Model.Products.FindAll(s => s.CategoryId == 2))
+                            {
+                                <div class="col-lg-4">
+                                    <div class="item">
+                                        <img class="w-100" src="~/assets/img/portfolio/@pr.Image" alt="">
+                                        <h5 class="mt-3">@pr.Title</h5>
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="pills-contact" role="tabpanel"
+                         aria-labelledby="pills-contact-tab">
+
+                        <div class="row text-center">
+                            @foreach (Product pr in Model.Products.FindAll(s => s.CategoryId == 3))
+                            {
+                                <div class="col-lg-4">
+                                    <div class="item">
+                                        <img class="w-100" src="~/assets/img/portfolio/@pr.Image" alt="">
+                                        <h5 class="mt-3">@pr.Title</h5>
+                                    </div>
+                                </div>
+                            }
+
+
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="pills-web" role="tabpanel" aria-labelledby="pills-contact-tab">
+
+                        <div class="row text-center">
+                            @foreach (Product pr in Model.Products.FindAll(s => s.CategoryId == 4))
+                            {
+                                <div class="col-lg-4">
+                                    <div class="item">
+                                        <img class="w-100" src="~/assets/img/portfolio/@pr.Image" alt="">
+                                        <h5 class="mt-3">@pr.Title</h5>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="title text-center">
+                    <h2>CONTACT US</h2>
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+                </div>
+                <div class="col-lg-4 mt-4">
+                    <div class="card text-center">
+                        <i class="@servis.GetDatas().Result.FirstOrDefault(s=>s.Key=="location").Value"></i>
+                        <h5>ADDRESS</h5>
+                        <p>@servis.GetDatas().Result.FirstOrDefault(s=>s.Key=="adress").Value</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mt-4">
+                    <div class="card text-center">
+                        <i class="@servis.GetDatas().Result.FirstOrDefault(s=>s.Key=="phone").Value"></i>
+                        <h5>PHONE</h5>
+                        <p>@servis.GetDatas().Result.FirstOrDefault(s=>s.Key=="phoneS").Value</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mt-4">
+                    <div class="card text-center">
+                        <i class="@servis.GetDatas().Result.FirstOrDefault(s=>s.Key=="email").Value"></i>
+                        <h5>EMAIL</h5>
+                        <p>@servis.GetDatas().Result.FirstOrDefault(s=>s.Key=="emailS").Value</p>
+                    </div>
+                </div>
+                <form action="" class="text-center">
+                    <div class="d-flex">
+                        <input type="text" placeholder="Your Name" class="w-50  form-control">
+                        <input type="text" placeholder="Your Email" class="w-50 mx-4 form-control">
+                    </div>
+                    <input type="text" placeholder="Subject" class="w-100  mt-4 form-control">
+                    <textarea name="" id="" cols="30" rows="5" class="w-100 mt-4" placeholder="Message"></textarea>
+                    <button class="btnForm"> Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+

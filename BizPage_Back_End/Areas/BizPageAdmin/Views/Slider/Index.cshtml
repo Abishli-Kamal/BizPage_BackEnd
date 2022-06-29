@@ -1,0 +1,53 @@
+﻿@using BizPage_Back_End.Models
+@model List<Slider>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<table class="table table-dark">
+    <thead>
+        <tr>
+
+            <th scope="col">Image</th>
+            <th scope="col">Title</th>
+            <th scope="col">SubTitle</th>
+            <th scope="col">Setting</th>
+
+        </tr>
+    </thead>
+    <tbody>
+          <a asp-controller="Slider" asp-action="Create" style="color:white;font-size:20px" class="mb-3 btn btn-success">Create slider</a>
+
+        @foreach (Slider sl in Model)
+        {
+            <tr>
+                <td>
+                    <img style="width:200px;height:150px;" src="~/assets/img/@sl.Image" />
+                </td>
+                <td>@sl.Title</td>
+                <td>@sl.SubTitle</td>
+                <td>
+                    
+                        <div class="d-flex">
+                            <div class="detail">
+                                <a asp-controller="Slider" asp-action="Detail" asp-route-id="@sl.Id" class="btn btn-danger"><i class="mdi mdi-details"></i></a>
+                            </div>
+                            <div class="edit">
+                                <a asp-controller="Slider" asp-action="Edit" asp-route-id="@sl.Id" class="btn btn-danger">
+                                    <i class="mdi mdi-tooltip-edit"></i>
+                                </a>
+                            </div>
+                            <div class="delete">
+                                <a asp-controller="Slider" asp-action="Delete" asp-route-id="@sl.Id" class="btn btn-danger"> <i class="mdi mdi-delete-forever"></i></a>
+                            </div>
+                        </div>
+                    
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+
+
